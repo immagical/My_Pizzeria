@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Luckiest+Guy&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<style> 
+body {
+    text-align: center;
+    background-color: maroon;
+    font-size:30px; 
+}
+h1 {
+    font-family: 'Luckiest Guy', cursive;
+    color: goldenrod; 
+    letter-spacing: 5px;
+}
+img {
+   float: left;
+   border: 10px double darkorange;
+   border-radius: 100px;
+}
+#suggest {
+   font-family: 'BhuTuka Expanded One', cursive; 
+   color: maroon;
+   font-weight: bolder;
+   background-color: yellow;
+   font-size: 20px;
+   width: 400px;
+    
+}
+button {
+    background-color: black;
+    color: darkgoldenrod;
+    font-family: 'Special Elite', cursive;
+    border: 2px double darkgoldenrod; 
+    font-size: 20px;
+}
+h2 {
+    color: gold; 
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+    margin-top: 50px;
+}
+#hidebutton {
+    display: none;
+    font-size: 20px;
+}
+#menuarea {
+    float: right;
+    font-size: 20px;
+}
+
+</style>
+<body>
+    <h1> WELCOME TO MY PIZZARIA</h1>
+    <img src = "chefdogeatingpizzacute-removebg-preview.png">
+    <div id = "menuarea"></div>
+     <input id = "suggest" type = "text" placeholder="Enter pizza suggestion here">
+     <button id = "suggestbutton" onclick = "getsuggestion();"> SUBMIT SUGGESTION</button>
+     <h2 id = "menu"> </h2>
+     <button id = "showbutton" onclick = "showmenu();">SHOW MENU </button>
+     <button id = "hidebutton" onclick="hidemenu()"> HIDE MENU </button>
+    </div>
+ <script> 
+ menulist = []; 
+ finalmenu = ""; 
+ function getsuggestion(){
+     var newpizza = document.getElementById("suggest").value;  
+     console.log(menulist);
+     menulist.push(newpizza + "<br>");
+     menulist.sort();
+     finalmenu = menulist.join(" ");
+     console.log(finalmenu);
+     document.getElementById("suggest").value = ""; 
+ }
+ function showmenu() {
+     document.getElementById("menu").style.display = "block";
+     if (finalmenu=="") {
+         document.getElementById("menu").innerHTML = "Please give us some pizza suggestions!";
+     }
+     else {
+        document.getElementById("menu").innerHTML = finalmenu;
+     }
+     document.getElementById("showbutton").style.display = "none"; 
+     document.getElementById("hidebutton").style.display = "inline-block"; 
+ }
+ function hidemenu() {
+     document.getElementById("menu").style.display = "none";
+     document.getElementById("hidebutton").style.display = "none"; 
+     document.getElementById("showbutton").style.display = "inline-block"; 
+ }
+</script>   
+</body>
+</html>
